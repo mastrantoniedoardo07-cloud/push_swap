@@ -20,5 +20,6 @@ void rr(t_list *a, t_list *b);
 void rra(t_list *a, t_list *b);
 void rrb(t_list *a, t_list *b);
 void rrr(t_list *a, t_list *b);
+float disorder(t_list *a);
 
 #endif 

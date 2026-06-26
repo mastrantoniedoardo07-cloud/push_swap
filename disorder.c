@@ -1,7 +1,7 @@
 
 #include "operations.h"
 
-int len_list(t_list *a)
+static int len_list(t_list *a)
 {
 	int	i;
 

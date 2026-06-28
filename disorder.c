@@ -1,34 +1,33 @@
 
 #include "push_swap.h"
 
-static int len_list(t_list *a)
+static int	len_list(t_list *a)
 {
 	int	i;
 
 	i = 0;
-	while (a != NULL)
+	while (a)
 	{
 		a = a->next;
 		i++;
 	}
 	return (i);
 }
-float disorder(t_list *a)
-{
-    float   disorder;
-    float   divider;
 
-    if (!a || !a->next)
-        return (0.0f);
-    divider = 1.0f / (len_list(a) - 1);
-    disorder = 0.0f;
-    while (a->next != NULL)
-    {
-        if (a->value > a->next->value)
-        {
-            disorder += divider;
-        }
-        a = a->next;
-    }
-    return (disorder);
+double	disorder(t_list *a)
+{
+	double	score;
+	double	div;
+
+	if (!a || !a->next)
+		return (0.0);
+	div = 1.0 / (len_list(a) - 1);
+	score = 0.0;
+	while (a->next)
+	{
+		if (a->value > a->next->value)
+			score += div;
+		a = a->next;
+	}
+	return (score);
 }

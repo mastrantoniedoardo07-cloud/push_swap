@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emastran <emastran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 12:16:42 by emastran          #+#    #+#             */
-/*   Updated: 2026/06/27 12:13:47 by emastran         ###   ########.fr       */
+/*   Updated: 2026/06/28 12:32:48 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-#include "libft.h"
-#include "operations.h"
+# include "libft.h"
+# include "operations.h"
 
 typedef struct s_list
 {
-	int			value;
+	int				value;
 	struct s_list	*next;
 }					t_list;
 
-int error_menagment(int argc, char **argv);
-float disorder(t_list *a);
+int		error_management(int argc, char **argv, t_list **a, t_list **b);
+double	disorder(t_list *a);
+void	sort_simple(t_list **a, t_list **b);
 
 #endif

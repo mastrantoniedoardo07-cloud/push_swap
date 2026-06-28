@@ -3,84 +3,74 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emastran <emastran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:25:50 by emastran          #+#    #+#             */
-/*   Updated: 2026/06/27 14:50:30 by emastran         ###   ########.fr       */
+/*   Updated: 2026/06/28 12:34:32 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-int len_list(t_list *a)
-{
-    int len;
-    t_list *temp;
+#include "../push_swap.h"
 
-    len = 0;
-    temp = a;
-    while (temp != NULL)
-    {
-        len++;
-        temp = temp->next;
-    }
-    return (len);
-}
-int find_index(t_list *a, t_list *target)
+static int	len_list(t_list *a)
 {
-    int index;
-    t_list *temp;
+	int	len;
 
-    index = 0;
-    temp = a;
-    while (temp != target)
-    {
-        index++;
-        temp = temp->next;
-    }
-    return (index);
+	len = 0;
+	while (a)
+	{
+		len++;
+		a = a->next;
+	}
+	return (len);
 }
-t_list *find_min_node(t_list *a)
+
+static int	find_index(t_list *a, t_list *target)
 {
-    t_list *min_node;
-    t_list *temp;
+	int	index;
 
-    min_node = a;
-    temp = a;
-    while (temp != NULL)
-    {
-        if (temp->value < min_node->value)
-            min_node = temp;
-        temp = temp->next;
-    }
-    return (min_node);
+	index = 0;
+	while (a != target)
+	{
+		index++;
+		a = a->next;
+	}
+	return (index);
 }
-void sort_simple(t_list **a, t_list **b)
+
+static t_list	*find_min_node(t_list *a)
+{
+	t_list	*min;
+
+	min = a;
+	while (a)
+	{
+		if (a->value < min->value)
+			min = a;
+		a = a->next;
+	}
+	return (min);
+}
+
+void	sort_simple(t_list **a, t_list **b)
 {
 	int		len;
-	int		index;
-	t_list	*min_node;
+	int		idx;
+	t_list	*min;
 
-	while (*a != NULL)
+	while (*a)
 	{
 		len = len_list(*a);
-		min_node = find_min_node(*a);
-		index = find_index(*a, min_node);
-		if(index <= len/2)
-		{
-			while(0 < index)
-			{
+		min = find_min_node(*a);
+		idx = find_index(*a, min);
+		if (idx <= len / 2)
+			while (idx-- > 0)
 				ra(a);
-				index--;
-			}
-		}
 		else
-		{
-    		while (index < len)
-    		{
-      		  rra(a);
-			  index++;
-    		}
-		}
+			while (idx++ < len)
+				rra(a);
 		pb(a, b);
 	}
+	while (*b)
+		pa(a, b);
 }

@@ -14,5 +14,8 @@ void	rr(t_list **a, t_list **b);
 void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
+void	swap_stack(t_list **stack);
+void	rotate_stack(t_list **stack);
+void	rev_rotate_stack(t_list **stack);
 
 #endif

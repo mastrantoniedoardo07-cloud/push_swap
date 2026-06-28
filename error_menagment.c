@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 14:50:10 by emastran          #+#    #+#             */
-/*   Updated: 2026/06/28 12:33:11 by edoardo          ###   ########.fr       */
+/*   Updated: 2026/06/28 14:21:21 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,18 @@ static void	check_flag(int argc, char **argv, t_list **a, t_list **b)
 		;
 	else if (ft_strncmp(argv[1], "--complex", 10) == 0)
 		;
+	else if (ft_strncmp(argv[1], "--bench", 10) == 0)
+		;
 	else
-		write(2, "Error\n", 6);
+		return(write(2, "Error\n", 6));
 }
 
 int	error_management(int argc, char **argv, t_list **a, t_list **b)
 {
+	if (check_if_numb(a) < 0)
+		return(write(2, "Error\n", 6))
+	if (check_for_dup(a) < 0)
+		return(write(2, "Error\n", 6))
 	if (argc < 3)
 		return (write(2, "Error\n", 6));
 	a = sort_and_fill(argc, argv, a);

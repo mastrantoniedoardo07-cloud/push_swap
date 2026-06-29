@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 14:50:10 by emastran          #+#    #+#             */
-/*   Updated: 2026/06/28 14:21:21 by edoardo          ###   ########.fr       */
+/*   Updated: 2026/06/29 11:45:11 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ static void	check_flag(int argc, char **argv, t_list **a, t_list **b)
 		if (in_order < 0.2)
 			sort_simple(a, b);
 		else if (in_order >= 0.2 && in_order < 0.5)
-			;
+			sort_large(a, b);
 		else
 			;
 	}
 	else if (ft_strncmp(argv[1], "--medium", 9) == 0)
-		;
+		sort_large(a, b);
 	else if (ft_strncmp(argv[1], "--complex", 10) == 0)
 		;
 	else if (ft_strncmp(argv[1], "--bench", 10) == 0)
@@ -94,7 +94,7 @@ int	error_management(int argc, char **argv, t_list **a, t_list **b)
 	if (argc < 3)
 		return (write(2, "Error\n", 6));
 	a = sort_and_fill(argc, argv, a);
-	if (!*a)
+	if (!a || !*a)
 		return (write(2, "Error\n", 6));
 	check_flag(argc, argv, a, b);
 	return (0);

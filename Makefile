@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -I.
 
 # Elenco dei file sorgente
 SRCS = main.c error_management.c disorder.c error_management_two.c\
-       sorters/sort_simple.c
+       sorters/sort_simple.c sorters/sort_medium.c
 	   operations/operations.c operations/operations_two.c operations/operations_three.c
 
 # Converte i .c in .o

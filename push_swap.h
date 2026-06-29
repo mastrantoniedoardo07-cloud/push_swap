@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 12:16:42 by emastran          #+#    #+#             */
-/*   Updated: 2026/06/28 14:20:59 by edoardo          ###   ########.fr       */
+/*   Updated: 2026/06/29 11:43:35 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ double	disorder(t_list *a);
 void	sort_simple(t_list **a, t_list **b);
 int check_for_dup(t_list **a);
 int check_if_numb(t_list **a);
+void	sort_large(t_list **a, t_list **b);
 
 #endif
